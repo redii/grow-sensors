@@ -1,0 +1,5 @@
+{
+  "exporterUrl": "http://localhost:3000/push",
+  "exporterApiKey": "abc123...",
+  "sensorIntervalMs": 10000
+}
