@@ -1,6 +1,6 @@
 # 🌱 Grow Sensors
 
-This repo contains the logic for collecting data from multiple sensors and sending it to an [prometheus exporter]().
+This repo contains the logic for collecting data from multiple sensors and sending it to an [prometheus exporter](https://github.com/redii/grow-exporter).
 
 ## Project Structure
 
