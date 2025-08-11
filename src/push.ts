@@ -28,6 +28,7 @@ async function main() {
     await fetch(exporterUrl, {
       method: "POST",
       headers: {
+        "content-type": "application/json",
         "x-api-key": exporterApiKey,
       },
       body: JSON.stringify({
