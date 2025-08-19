@@ -6,7 +6,7 @@ import MoistureSensor from "./sensors/CapacitiveSoilMoistureSensorV2";
 
 const config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 const sensorInterval = parseInt(
-  process.env.SENSOR_INTERVAL_MS || config.sensorIntervalMs
+  process.env.SENSOR_INTERVAL_MS || config.sensorIntervalMs || 500
 );
 
 async function main() {
