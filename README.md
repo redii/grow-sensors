@@ -1,6 +1,6 @@
 # 🌱 Grow Sensors
 
-This repo contains the logic for collecting data from multiple sensors and sending it to an [prometheus exporter](https://github.com/redii/grow-exporter).
+This repo contains the logic for collecting data from multiple sensors and sending it to the prometheus [grow-exporter](https://github.com/redii/grow-exporter).
 
 ## Project Structure
 
@@ -20,7 +20,7 @@ grow-sensors
 
 ## Usage
 
-The script need a config which can be provided using a ´config.json´ file or environment variables. Take a look at the [config.example.json](https://github.com/redii/grow-sensors/blob/main/config.example.json) file or use the following env variables:
+The script needs a config which can be provided using a ´config.json´ file or environment variables. Take a look at the [config.example.json](https://github.com/redii/grow-sensors/blob/main/config.example.json) file or use the following environment variables:
 
 | Variable             | Required           | Default | Description                                                                                      |
 | -------------------- | ------------------ | ------- | ------------------------------------------------------------------------------------------------ |
