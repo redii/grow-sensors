@@ -31,7 +31,7 @@ async function main() {
       ? await sht31.currentValues()
       : { temperature: undefined, humidity: undefined };
     const moisture = moistureSensor ? await moistureSensor.currentValue() : undefined;
-    const illuminance = bh1750 ? await bh1750.currentValue() : temperature;
+    const illuminance = bh1750 ? await bh1750.currentValue() : undefined;
 
     await fetch(exporterUrl, {
       method: 'POST',
