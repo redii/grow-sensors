@@ -3,6 +3,7 @@ import * as i2c from 'i2c-bus';
 import BH1750Sensor from './sensors/BH1750Sensor';
 import SHT31Sensor from './sensors/SHT31Sensor';
 import MoistureSensor from './sensors/CapacitiveSoilMoistureSensorV2';
+import Cam from './camera';
 
 import type { PromisifiedBus } from 'i2c-bus';
 
@@ -18,7 +19,6 @@ const moistureSensorAddress = 0x48;
 async function main() {
   const bus: PromisifiedBus = await i2c.openPromisified(1);
   const detectedAddresses = await bus.scan();
-
   let bh1750: BH1750Sensor | undefined;
   let sht31: SHT31Sensor | undefined;
   let moistureSensor: MoistureSensor | undefined;
@@ -26,12 +26,17 @@ async function main() {
   if (detectedAddresses.includes(sht31Address)) sht31 = new SHT31Sensor({ bus });
   if (detectedAddresses.includes(moistureSensorAddress)) moistureSensor = new MoistureSensor({ bus });
 
+  const cam = new Cam({
+    path: './images',
+  });
+
   setInterval(async () => {
     const { temperature, humidity } = sht31
       ? await sht31.currentValues()
       : { temperature: undefined, humidity: undefined };
     const moisture = moistureSensor ? await moistureSensor.currentValue() : undefined;
     const illuminance = bh1750 ? await bh1750.currentValue() : undefined;
+    const image = await cam.captureImage();
 
     await fetch(exporterUrl, {
       method: 'POST',
@@ -44,6 +49,7 @@ async function main() {
         humidity,
         moisture,
         illuminance,
+        image,
       }),
     });
   }, sensorInterval);

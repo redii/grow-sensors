@@ -1,15 +1,17 @@
 {
-  "name": "grow-sensors",
+  "name": "grow-monitor",
   "version": "1.0.0",
-  "description": "A TypeScript project to read data from multiple sensors using i2c-bus.",
-  "main": "src/push.ts",
+  "description": "Capturing environmental sensor readings and periodic camera images.",
+  "main": "src/monitor.ts",
   "scripts": {
     "dev": "ts-node src/debug.ts",
-    "push": "ts-node src/push.ts",
+    "monitor": "ts-node src/monitor.ts",
     "build": "tsc"
   },
   "dependencies": {
     "i2c-bus": "^5.2.3",
+    "moment": "^2.30.1",
+    "samba-client": "^7.2.0",
     "typescript": "^4.0.0"
   },
   "license": "MIT",
