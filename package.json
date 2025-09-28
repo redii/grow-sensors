@@ -1,5 +1,5 @@
 {
-  "name": "grow-monitor",
+  "name": "grow-sensors",
   "version": "1.0.0",
   "description": "Capturing environmental sensor readings and periodic camera images.",
   "main": "src/monitor.ts",

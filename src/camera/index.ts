@@ -38,7 +38,6 @@ export default class Cam {
   async captureImage(path?: string): Promise<string> {
     try {
       const timestamp = moment().format('yyyy-MM-DD_HH:mm:ss');
-      console.log(timestamp);
       const imagePath = `${this.path}/${timestamp}.jpg`.replace('//', '/');
       await execAsync(
         `rpicam-still --output ${imagePath} --width ${this.width} --height ${this.height} --quality ${this.quality} --encoding ${this.encoding} --timeout ${this.timeout} --nopreview`
