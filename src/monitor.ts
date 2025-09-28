@@ -44,6 +44,17 @@ async function main() {
         illuminance,
       }),
     });
+
+    console.info(
+      new Date(),
+      'Data exported\n',
+      JSON.stringify({
+        temperature,
+        humidity,
+        moisture,
+        illuminance,
+      })
+    );
   }, sensorInterval);
 }
 
