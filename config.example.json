@@ -1,5 +1,7 @@
 {
   "exporterUrl": "http://localhost:3000/push",
   "exporterApiKey": "abc123...",
-  "sensorIntervalMs": 10000
+  "sensorIntervalMs": 10000,
+  "timelapsePath": "./timelapse",
+  "timelapseIntervalMs": 30000
 }

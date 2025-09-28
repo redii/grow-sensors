@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import moment from 'moment';
 import * as i2c from 'i2c-bus';
 import BH1750Sensor from './sensors/BH1750Sensor';
 import SHT31Sensor from './sensors/SHT31Sensor';
@@ -9,7 +10,7 @@ import type { PromisifiedBus } from 'i2c-bus';
 const config = JSON.parse(fs.readFileSync('config.json', 'utf8'));
 const exporterUrl = process.env.EXPORTER_URL || config.exporterUrl;
 const exporterApiKey = process.env.EXPORTER_API_KEY || config.exporterApiKey;
-const sensorInterval = parseInt(process.env.SENSOR_INTERVAL_MS || config.sensorIntervalMs || 5000);
+const interval = parseInt(process.env.SENSOR_INTERVAL_MS || config.sensorIntervalMs || 5000);
 
 // const bh1750Address = 0x23;
 // const sht31Address = 0x44;
@@ -46,8 +47,8 @@ async function main() {
     });
 
     console.info(
-      new Date(),
-      'Data exported',
+      moment().format('yyyy-MM-DD_HH:mm:ss'),
+      '- Data exported -',
       JSON.stringify({
         temperature,
         humidity,
@@ -55,7 +56,7 @@ async function main() {
         illuminance,
       })
     );
-  }, sensorInterval);
+  }, interval);
 }
 
 main().catch(console.error);
