@@ -47,7 +47,7 @@ async function main() {
 
     console.info(
       new Date(),
-      'Data exported\n',
+      'Data exported',
       JSON.stringify({
         temperature,
         humidity,
