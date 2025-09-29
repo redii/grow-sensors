@@ -40,6 +40,7 @@ You can start the script using `npm run dev` for debug mode or `npm run push` fo
 | Variable             | Required | Default | Description                                      |
 | -------------------- | -------- | ------- | ------------------------------------------------ |
 | `SENSOR_INTERVAL_MS` | ❌       | `30000` | Time between timelapse images (in milliseconds). |
+| `IMGBB_API_KEY`      | ❌       |         | API key for automatic upload to imgbb.com        |
 
 ## License
 
