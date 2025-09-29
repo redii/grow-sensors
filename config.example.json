@@ -3,5 +3,6 @@
   "exporterApiKey": "abc123...",
   "sensorIntervalMs": 10000,
   "timelapsePath": "./timelapse",
-  "timelapseIntervalMs": 30000
+  "timelapseIntervalMs": 30000,
+  "imgbbApiKey": "your-imgbb-api-key"
 }
